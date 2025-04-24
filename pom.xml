@@ -126,7 +126,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>authservice</finalName>
+		<finalName>userservice</finalName>
 	</build>
 
 </project>

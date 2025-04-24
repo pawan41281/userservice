@@ -2,7 +2,7 @@
 FROM openjdk:17-jdk-slim
 
 # Add the application's jar to the image
-COPY target/authservice.jar authservice.jar
+COPY target/userservice.jar userservice.jar
 
 # Command to execute the application
-ENTRYPOINT ["java", "-Dspring.profiles.active=docker", "-jar", "authservice.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=docker", "-jar", "userservice.jar"]
