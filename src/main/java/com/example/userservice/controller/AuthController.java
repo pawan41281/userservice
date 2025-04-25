@@ -22,6 +22,7 @@ import com.example.userservice.vo.LoginVo;
 import com.example.userservice.vo.MessageResponseVo;
 import com.example.userservice.vo.SignupRequestVo;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
@@ -45,6 +46,7 @@ public class AuthController {
 
 	// Build Login REST API
 	@PostMapping("/login")
+	@Operation(summary = "Login Operation", description = "Generate the access token")
 	public ResponseEntity<JwtAuthResponse> login(@RequestBody LoginVo loginVo) {
 		String token = authService.login(loginVo);
 
@@ -56,6 +58,7 @@ public class AuthController {
 
 	// Create New User
 	@PostMapping("/signup")
+	@Operation(summary = "Signup Operation", description = "Create new user")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequestVo signUpRequestVo) {
 		if (userRepository.existsByUsername(signUpRequestVo.getUsername())) {
 			return ResponseEntity.badRequest().body(new MessageResponseVo("Error: Username is already exists!"));
